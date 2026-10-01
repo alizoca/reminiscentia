@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a1240">
+<meta name="description" content="Reminiscentia é um jogo pixel art de terror psicológico sobre Lília, Helena e as lembranças que insistem em voltar.">
+<title>Reminiscentia — o mar guarda o que a gente tenta esquecer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..800,0..100,0..1;1,9..144,300..800,0..100,0..1&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: dark;
+  --abyss: #050818;
+  --deep: #0a1240;
+  --swirl: #1f38a8;
+  --foam: #bad6ff;
+  --text: #c9d8f5;
+  --glow: #35b6ff;
+  --lamp: #f5b73b;
+  --violet: #7b52e6;
+  --serif: "Fraunces",Georgia,"Times New Roman",serif;
+  --pixel: "DotGothic16","Courier New",monospace;
+  --notch: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 4px,4px 4px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--abyss);
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font: 400 1.125rem/1.68 var(--serif);
+  font-variation-settings: "SOFT" 60;
+  background: linear-gradient(180deg,#0d1a58 0,#0a1240 14%,#070c2c 40%,#050818 68%,#02030b 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: #f3f6ff;
+  font-weight: 400;
+  font-variation-settings: "SOFT" 100,"WONK" 1;
+}
+
+h2 {
+  font-size: clamp(2.2rem,5vw,3.6rem);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  max-width: 16ch;
+}
+
+p {
+  margin: 0;
+}
+
+.wrap {
+  width: min(1120px,calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.px {
+  image-rendering: pixelated;
+}
+
+:focus-visible {
+  outline: 3px solid var(--lamp);
+  outline-offset: 3px;
+}
+
+/* botões: cantos em degrau, como a interface de um jogo em pixel */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 1.5rem;
+  border: 0;
+  cursor: pointer;
+  font: 1.02rem/1 var(--pixel);
+  text-decoration: none;
+  clip-path: var(--notch);
+  color: #f3f6ff;
+  background: rgba(186,214,255,.14);
+  transition: background .15s;
+}
+
+.btn:hover {
+  background: rgba(186,214,255,.26);
+}
+
+.btn.main {
+  color: #1c1400;
+  background: var(--lamp);
+}
+
+.btn.main:hover {
+  background: #ffcb5e;
+}
+
+/* cabeçalho */
+.bar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  background: linear-gradient(180deg,rgba(5,8,24,.86),rgba(5,8,24,0));
+}
+
+.bar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+  flex-wrap: wrap;
+}
+
+.mark {
+  font: 600 1.15rem var(--serif);
+  font-variation-settings: "SOFT" 100,"WONK" 1;
+  color: #f3f6ff;
+  text-decoration: none;
+  letter-spacing: .02em;
+}
+
+.links {
+  display: flex;
+  gap: clamp(1rem,3vw,2rem);
+}
+
+.links a {
+  font: .98rem var(--pixel);
+  text-decoration: none;
+  color: var(--foam);
+  padding: .4rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.links a:hover {
+  border-color: var(--glow);
+}
+
+/* hero */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("imagem%20header.jpeg") center 58%/cover no-repeat;
+  -webkit-mask-image: linear-gradient(180deg,#000 55%,transparent);
+  mask-image: linear-gradient(180deg,#000 55%,transparent);
+  opacity: .62;
+}
+
+.hero-in {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding-top: 72px;
+}
+
+.hero-copy {
+  container-type: inline-size;
+  width: min(100%,680px);
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem,9vw,6rem);
+  font-size: clamp(2.2rem,13.5cqi,8rem);
+  line-height: .95;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+  font-weight: 500;
+  animation: focus 1s ease-out both;
+}
+
+@keyframes focus {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.hero .line {
+  margin-top: 1.4rem;
+  font: italic 300 clamp(1.4rem,3vw,2.1rem)/1.2 var(--serif);
+  font-variation-settings: "SOFT" 100,"WONK" 1;
+  color: var(--foam);
+  max-width: 22ch;
+}
+
+.hero .sub {
+  margin-top: 1.2rem;
+  max-width: 44ch;
+}
+
+.status {
+  display: inline-block;
+  margin-bottom: 1.6rem;
+  padding: .35rem .8rem;
+  font: .92rem var(--pixel);
+  color: #1c1400;
+  background: var(--lamp);
+  clip-path: var(--notch);
+}
+
+.acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 2rem;
+}
+
+.wave {
+  height: 20px;
+  opacity: .9;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='20'%3E%3Cpath d='M0 14c12 0 14-10 26-10 9 0 12 8 6 9-5 1-6-6-1-7M48 14c12 0 14-10 26-10 9 0 12 8 6 9-5 1-6-6-1-7' fill='none' stroke='%2335b6ff' stroke-opacity='.5' stroke-width='2' stroke-linecap='square'/%3E%3C/svg%3E") repeat-x;
+}
+
+section {
+  padding-block: clamp(5rem,10vw,9rem);
+}
+
+.hero {
+  padding: 0;
+}
+
+/* história */
+.story-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: clamp(2.5rem,8vw,7rem);
+  align-items: start;
+}
+
+.story-copy {
+  position: sticky;
+  top: 110px;
+}
+
+.story-copy p {
+  margin-top: 1.5rem;
+  max-width: 46ch;
+}
+
+.path {
+  margin: 0;
+  padding: 0 0 0 2rem;
+  list-style: none;
+  border-left: 2px solid var(--swirl);
+}
+
+.path li {
+  position: relative;
+  padding-bottom: 2.6rem;
+}
+
+.path li:last-child {
+  padding-bottom: 0;
+}
+
+.path li::before {
+  content: "";
+  position: absolute;
+  left: calc(-2rem - 7px);
+  top: .55rem;
+  width: 12px;
+  height: 12px;
+  background: var(--glow);
+  box-shadow: 0 0 0 4px var(--deep);
+}
+
+.path li:last-child::before {
+  background: var(--lamp);
+}
+
+.path h3 {
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.path p {
+  margin-top: .5rem;
+  max-width: 52ch;
+}
+
+/* comparador lápis → pixel */
+.compare-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2.5rem;
+}
+
+.compare {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--abyss);
+  box-shadow: 8px 8px 0 var(--swirl);
+  --pos: 50%;
+}
+
+.compare img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.compare .top {
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+
+.c-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 3px;
+  margin-left: -1.5px;
+  background: var(--lamp);
+  pointer-events: none;
+}
+
+.c-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%,-50%);
+  background: var(--lamp);
+  clip-path: var(--notch);
+}
+
+.tag {
+  position: absolute;
+  bottom: 12px;
+  padding: .25rem .7rem;
+  font: .9rem var(--pixel);
+  color: #f3f6ff;
+  background: rgba(5,8,24,.82);
+  pointer-events: none;
+}
+
+.tag.l {
+  left: 12px;
+}
+
+.tag.r {
+  right: 12px;
+}
+
+.compare input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.compare:focus-within {
+  outline: 3px solid var(--lamp);
+  outline-offset: 4px;
+}
+
+/* lugares */
+.places-head {
+  margin-bottom: 2.5rem;
+}
+
+.places-head p {
+  margin-top: 1.2rem;
+  max-width: 52ch;
+}
+
+.places {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 2rem 2.2rem;
+  align-items: start;
+}
+
+.place:first-child {
+  grid-row: span 2;
+}
+
+.place {
+  margin: 0;
+}
+
+.place img {
+  width: 100%;
+  height: auto;
+  box-shadow: 8px 8px 0 var(--swirl);
+}
+
+.place h3 {
+  margin-top: 1.2rem;
+  font-size: 1.4rem;
+}
+
+.place span {
+  display: block;
+  max-width: 40ch;
+  margin-top: .4rem;
+  font: .95rem/1.5 var(--pixel);
+  color: var(--foam);
+}
+
+/* caderno */
+.notebook-head {
+  margin-bottom: 2rem;
+}
+
+.notebook-head p {
+  margin-top: 1.2rem;
+  max-width: 52ch;
+}
+
+.notebook {
+  padding-inline: 0;
+}
+
+.strip {
+  display: flex;
+  gap: 1.6rem;
+  overflow-x: auto;
+  padding: 1rem max(1.5rem,calc((100% - 1120px)/2)) 1.6rem;
+  scroll-snap-type: x proximity;
+  scrollbar-color: var(--glow) var(--deep);
+}
+
+.strip figure {
+  flex: none;
+  margin: 0;
+  scroll-snap-align: center;
+}
+
+.strip button {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.strip img {
+  height: clamp(280px,46vh,440px);
+  width: auto;
+  max-width: none;
+  box-shadow: 6px 6px 0 var(--swirl);
+}
+
+.strip figcaption {
+  margin-top: .9rem;
+  font: .95rem var(--pixel);
+  color: var(--foam);
+}
+
+dialog {
+  max-width: 96vw;
+  max-height: 96vh;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #f3f6ff;
+}
+
+dialog::backdrop {
+  background: rgba(2,3,11,.92);
+}
+
+dialog img {
+  max-width: 94vw;
+  max-height: 84vh;
+  margin: auto;
+  cursor: zoom-out;
+}
+
+dialog p {
+  margin-top: .8rem;
+  text-align: center;
+  font: .95rem var(--pixel);
+}
+
+.lb-close {
+  display: flex;
+  margin: 0 0 .8rem auto;
+}
+
+/* fecho */
+.close {
+  text-align: left;
+}
+
+.close-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.close-character {
+  width: min(420px,100%);
+  justify-self: center;
+  mix-blend-mode: screen;
+}
+
+.close h2 {
+  max-width: 14ch;
+  font-size: clamp(2.6rem,7vw,5.4rem);
+}
+
+.close p {
+  margin-top: 1.6rem;
+  max-width: 50ch;
+}
+
+.close .acts {
+  margin-top: 2.2rem;
+}
+
+footer {
+  padding: 4rem 0 5rem;
+  background: #02030b;
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+footer h2 {
+  font-size: 1.9rem;
+  max-width: 20ch;
+}
+
+footer p {
+  font: .95rem/1.7 var(--pixel);
+  color: #93a4c9;
+  max-width: 34ch;
+}
+
+footer .legal {
+  margin-top: 1rem;
+}
+
+@media (max-width:820px) {
+  .story-grid,
+  .compare-head,
+  .places {
+    grid-template-columns: 1fr;
+  }
+  .hero-in {
+    padding-top: 90px;
+  }
+  .close-grid {
+    grid-template-columns: 1fr;
+  }
+  .close-character {
+    width: min(300px,80%);
+  }
+  .story-copy {
+    position: static;
+  }
+  .place:first-child {
+    grid-row: auto;
+  }
+}
+
+@media (min-width:900px) {
+  .wrap {
+    width: min(1120px,calc(100% - 210px));
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none!important;
+  }
+  .hero h1 {
+    animation: none;
+  }
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <nav class="wrap" aria-label="Navegação principal">
+    <a class="mark" href="#inicio">Reminiscentia</a>
+    <div class="links"><a href="#historia">História</a><a href="#lugares">Lugares</a><a href="#caderno">Caderno</a><a href="#equipe">Equipe</a></div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <span class="status">Em desenvolvimento</span>
+        <h1>Reminiscentia</h1>
+        <p class="line">O mar guarda o que a gente tenta esquecer.</p>
+        <p class="sub">Um terror psicológico pixel art sobre Lília, Helena e uma lembrança que muda de forma cada vez que volta.</p>
+        <div class="acts">
+          <a class="btn main" href="#">Download</a> <!-- TODO -->
+          <a class="btn" href="#historia">Conhecer a história</a>
+          <a class="btn" href="#caderno">Ver os desenhos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true"></div>
+
+  <section id="historia">
+    <div class="wrap story-grid">
+      <div class="story-copy">
+        <h2>Nem toda memória fica no passado.</h2>
+        <p>Lília vive no fundo do mar. Depois da morte de Helena, sua amiga, ela tenta entender o que aconteceu e o que poderia ter feito diferente. As lembranças surgem em lugares conhecidos, mas logo deixam de parecer confiáveis.</p>
+      </div>
+      <ol class="path" aria-label="Percurso da história">
+        <li><h3>Um sonho familiar</h3><p>Lília e Helena conversam num lugar tranquilo. Quando Helena se afasta, a cena perde a cor e o sonho desaba.</p></li>
+        <li><h3>Pequenos desvios</h3><p>O caminho passa por espaços cotidianos. Objetos e detalhes abrem frestas para o que Lília ainda não conseguiu encarar.</p></li>
+        <li><h3>O corredor</h3><p>Olhos nas paredes, ruídos e lembranças distorcidas conduzem Lília até o confronto com a própria culpa.</p></li>
+        <li><h3>O que vem depois</h3><p>As escolhas feitas ao longo do percurso levam a desfechos diferentes. Seguir em frente não apaga o que aconteceu.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="compare-head">
+        <h2>prints do jogo em carousel</h2> <!-- TODO -->
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p> <!-- TODO -->
+      </div>
+      <div class="compare" id="cmp">
+        <img class="px" src="sprites,,/sprite 4 refinado.png" alt="Colina noturna em pixel art com um banco e espirais no céu">
+        <img class="top" src="storyboard/- storyboard 1 !.jpeg" alt="Rascunho a lápis da mesma cena, com Lília e Helena sentadas no banco">
+        <span class="tag l">Rascunho</span><span class="tag r">No jogo</span>
+        <span class="c-line" aria-hidden="true"></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Comparar o rascunho com a cena no jogo">
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true"></div>
+
+  <section id="lugares">
+    <div class="wrap">
+      <div class="places-head">
+        <h2>O cotidiano também pode ficar estranho.</h2>
+        <p>Uma casa, um mercado, um quarto. Conforme a lembrança aperta, os lugares familiares começam a devolver outra coisa.</p>
+      </div>
+      <div class="places">
+        <figure class="place">
+          <img class="px" src="sprites,,/sprite 5,,.jpeg" alt="Casa à noite em pixel art, com duas luminárias acesas, um caminho de terra e bolhas no céu">
+          <figcaption><h3>Casa</h3><span>Duas luminárias acesas, uma porta e um caminho de terra.</span></figcaption>
+        </figure>
+        <figure class="place">
+          <img class="px" src="sprites,,/sprite 3,,.jpeg" alt="Mercado em pixel art com caixa, freezer de congelados e balcão de docinhos">
+          <figcaption><h3>Mercado</h3><span>Caixa, freezer de congelados e balcão de docinhos.</span></figcaption>
+        </figure>
+        <figure class="place">
+          <img class="px" src="sprites,,/sprite 2,,.jpeg" alt="Quarto roxo em pixel art com armário, janela de cortinas, cama e um quadro de partitura">
+          <figcaption><h3>Quarto</h3><span>Armário, janela com cortinas, cama e um quadro de partitura.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="notebook" id="caderno">
+    <div class="wrap notebook-head">
+      <h2>colocar prints do jogo</h2> <!-- TODO -->
+      <p>Os storyboards deram forma às cenas antes dos sprites. Role para o lado e toque em uma página para ampliar.</p>
+    </div>
+    <div class="strip" tabindex="0" aria-label="Páginas do caderno de storyboard">
+      <figure><button type="button"><img src="storyboard/- storyboard 1 !.jpeg" alt="Storyboard a lápis de Lília e Helena sentadas juntas em um cenário submarino" loading="lazy"></button><figcaption>Um lugar compartilhado</figcaption></figure>
+      <figure><button type="button"><img src="storyboard/- storyboard 2 !.jpeg" alt="Storyboard mostra uma personagem sozinha diante de uma porta aberta" loading="lazy"></button><figcaption>O quarto e a porta</figcaption></figure>
+      <figure><button type="button"><img src="storyboard/- storyboard 3 !.jpeg" alt="Storyboard de um corredor escuro coberto de olhos, visto por trás de Lília" loading="lazy"></button><figcaption>O corredor de olhos</figcaption></figure>
+      <figure><button type="button"><img src="storyboard/- storyboard 4 !.jpeg" alt="Sequência desenhada: duas amigas conversando, uma caminhada e um sonho interrompido" loading="lazy"></button><figcaption>Um sonho que se desfaz</figcaption></figure>
+      <figure><button type="button"><img src="storyboard/- storyboard 5 !.jpeg" alt="Storyboard com um mercado e dois caminhos possíveis para o final" loading="lazy"></button><figcaption>Caminhos e desfechos</figcaption></figure>
+      <figure><button type="button"><img src="storyboard/- storyboard 6 !.jpeg" alt="Versão colorida do storyboard: Lília e Helena juntas, depois Lília diante de uma porta e do corredor" loading="lazy"></button><figcaption>A primeira lembrança</figcaption></figure>
+    </div>
+  </section>
+
+  <div class="wave" aria-hidden="true"></div>
+
+  <section class="close">
+    <div class="wrap close-grid">
+      <div>
+        <h2>Há coisas que voltam diferentes.</h2>
+        <p>O nome vem daquilo que retorna à memória. No jogo, cada lembrança muda um pouco quando Lília tenta revivê-la, e nem sempre ela está pronta para o que encontra.</p>
+        <div class="acts"><a class="btn main" href="https://github.com/alizoca/reminiscentia" target="_blank" rel="noreferrer">Acompanhar no GitHub</a></div>
+      </div>
+      <img class="close-character" src="sprites,,/sprite_1_refinado.png" alt="Lília, personagem de água-viva em tons de azul, em pixel art" loading="lazy">
+    </div>
+  </section>
+</main>
+
+<footer id="equipe">
+  <div class="wrap">
+    <h2>SITE E JOGO AINDA NÃO COMPLETO</h2> <!-- TODO -->
+    <div>
+      <p>Ali Panzere, Arthur Peres, Allicia Sant’Anna, Luiz Henrique Menezes e Lanna Barbosa.</p>
+      <p class="legal">1º DS - SPO-IFSP - Jogo da banca</p>
+    </div>
+  </div>
+</footer>
+
+<dialog id="lb" aria-labelledby="lb-cap">
+  <button type="button" class="btn lb-close">Fechar</button>
+  <img alt="">
+  <p id="lb-cap"></p>
+</dialog>
+
+<script>
+(function () {
+  // comparador lápis → pixel
+  var cmp = document.getElementById('cmp');
+  cmp.querySelector('input').addEventListener('input', function (e) {
+    cmp.style.setProperty('--pos', e.target.value + '%');
+  });
+
+  // ampliar páginas do caderno (Esc fecha nativamente)
+  var lb = document.getElementById('lb');
+  var lbImg = lb.querySelector('img');
+  var lbCap = document.getElementById('lb-cap');
+  document.querySelectorAll('.strip button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var img = btn.querySelector('img');
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbCap.textContent = btn.parentNode.querySelector('figcaption').textContent;
+      lb.showModal();
+    });
+  });
+  lb.addEventListener('click', function () { lb.close(); });
+})();
+</script>
+</body>
+</html>
