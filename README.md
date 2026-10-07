@@ -18,13 +18,13 @@ A jornada culmina em um confronto simbólico com os próprios pensamentos de Lí
 
 ## Gênero ︵
 
-- Pixel art
-- Terror psicológico
+― Pixel art
+― Terror psicológico
 
 ## Equipe ︵
 
-- Ali Panzere
-- Arthur Peres
-- Allicia Sant’Anna
-- Luiz Henrique Menezes
-- Lanna Barbosa
+― Ali Panzere
+― Arthur Peres
+― Allicia Sant’Anna
+― Luiz Henrique Menezes
+― Lanna Barbosa
