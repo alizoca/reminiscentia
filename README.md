@@ -1,12 +1,12 @@
-# reminiscentia
+# ✦ reminiscentia
 
 Jogo pixel art de terror psicológico ambientado no fundo do mar.
 
-## Sobre o jogo
+## Sobre o jogo ︵
 
 A protagonista, Lília, é uma água-viva humanoide que retorna ao fundo do mar carregando lembranças fragmentadas e um sentimento de culpa pela morte de sua amiga. Conforme explora lugares ligados ao passado, memórias e alucinações começam a se misturar. A história acompanha seu processo de luto e a possibilidade de aceitar que a morte da amiga não foi necessariamente culpa sua.
 
-## Estrutura da jornada
+## Estrutura da jornada ︵
 
 A aventura passa por três lugares, em uma ordem que acompanha a intensificação das lembranças:
 
@@ -16,12 +16,12 @@ A aventura passa por três lugares, em uma ordem que acompanha a intensificaçã
 
 A jornada culmina em um confronto simbólico com os próprios pensamentos de Lília. O resultado leva a finais diferentes: ela pode ser consumida pelo luto ou aceitar a perda e seguir em frente.
 
-## Gênero
+## Gênero ︵
 
 - Pixel art
 - Terror psicológico
 
-## Equipe
+## Equipe ︵
 
 - Ali Panzere
 - Arthur Peres
