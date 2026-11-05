@@ -9,30 +9,39 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..800,0..100,0..1;1,9..144,300..800,0..100,0..1&display=swap" rel="stylesheet">
+<link rel="preload" href="site/cenario-abertura.webp" as="image">
+<link rel="icon" href="sprites,,/sprite_1_refinado.png" type="image/png">
 <link rel="stylesheet" href="site/styles.css">
+<script src="site/script.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="bar">
   <nav class="wrap" aria-label="Navegação principal">
     <a class="mark" href="#inicio">Reminiscentia</a>
-    <div class="links"><a href="#historia">História</a><a href="#lugares">Lugares</a><a href="#caderno">Caderno</a><a href="#equipe">Equipe</a></div>
+    <div class="links">
+      <a href="#historia">História</a>
+      <a href="#personagens">Personagens</a>
+      <a href="#lugares">Galeria</a>
+      <a href="#caderno">Caderno</a>
+      <a class="nav-download" href="#baixar">Baixar</a>
+    </div>
   </nav>
 </header>
 
-<main>
+<main id="conteudo" tabindex="-1">
   <section class="hero" id="inicio">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-in">
       <div class="hero-copy">
-        <span class="status">Em desenvolvimento</span>
         <h1>Reminiscentia</h1>
         <p class="line">O mar guarda o que a gente tenta esquecer.</p>
         <p class="sub">Um terror psicológico pixel art sobre Lília, Helena e uma lembrança que muda de forma cada vez que volta.</p>
         <div class="acts">
-          <a class="btn main" href="#">Download</a> <!-- TODO -->
-          <a class="btn" href="#historia">Conhecer a história</a>
-          <a class="btn" href="#caderno">Ver os desenhos</a>
+          <a class="btn main" href="jogo/Reminiscentia.exe" download><span aria-hidden="true">↓</span> Baixar para Windows</a>
+          <a class="btn" href="#lugares">Ver os cenários</a>
         </div>
+        <p class="file-info">Instalador .exe <span aria-hidden="true">·</span> 17,5 MB</p>
       </div>
     </div>
   </section>
@@ -42,6 +51,7 @@
   <section id="historia">
     <div class="wrap story-grid">
       <div class="story-copy">
+        <p class="eyebrow">A história</p>
         <h2>Nem toda memória fica no passado.</h2>
         <p>Lília vive no fundo do mar. Depois da morte de Helena, sua amiga, ela tenta entender o que aconteceu e o que poderia ter feito diferente. As lembranças surgem em lugares conhecidos, mas logo deixam de parecer confiáveis.</p>
       </div>
@@ -54,51 +64,86 @@
     </div>
   </section>
 
-  <section>
+  <div class="wave" aria-hidden="true"></div>
+
+  <section class="characters" id="personagens" aria-labelledby="personagens-titulo">
     <div class="wrap">
-      <div class="compare-head">
-        <h2>prints do jogo em carousel</h2> <!-- TODO -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p> <!-- TODO -->
-      </div>
-      <div class="compare" id="cmp">
-        <img class="px" src="sprites,,/sprite 4 refinado.png" alt="Colina noturna em pixel art com um banco e espirais no céu">
-        <img class="top" src="storyboard/- storyboard 1 !.jpeg" alt="Rascunho a lápis da mesma cena, com Lília e Helena sentadas no banco">
-        <span class="tag l">Rascunho</span><span class="tag r">No jogo</span>
-        <span class="c-line" aria-hidden="true"></span>
-        <input type="range" min="0" max="100" value="50" aria-label="Comparar o rascunho com a cena no jogo">
+      <h2 class="section-head" id="personagens-titulo">Personagens</h2>
+      <div class="character-grid">
+        <article class="character">
+          <div class="character-portrait">
+            <img class="lilia" src="sprites,,/sprite_1_refinado.png" width="500" height="500" alt="Lília em tons de azul, com tentáculos em espiral" loading="lazy">
+          </div>
+          <div class="character-copy">
+            <p class="eyebrow">Protagonista</p>
+            <h3>Lília</h3>
+            <p>Uma água-viva humanoide que vive no fundo do mar. Depois de perder Helena, revisita os lugares que as duas conheciam e tenta entender o que aconteceu.</p>
+          </div>
+        </article>
+        <article class="character">
+          <div class="character-portrait helena">
+            <img src="site/helena.png" width="215" height="499" alt="Helena em tons de cobre, com cabelo cacheado" loading="lazy">
+          </div>
+          <div class="character-copy">
+            <p class="eyebrow">Amiga de Lília</p>
+            <h3>Helena</h3>
+            <p>Helena aparece nos sonhos e nas lembranças de Lília. Em uma dessas cenas, as duas conversam num banco. Quando Helena se afasta, o sonho começa a perder a cor.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <div class="wave" aria-hidden="true"></div>
-
-  <section id="lugares">
+  <section id="lugares" class="gallery">
     <div class="wrap">
-      <div class="places-head">
-        <h2>O cotidiano também pode ficar estranho.</h2>
-        <p>Uma casa, um mercado, um quarto. Conforme a lembrança aperta, os lugares familiares começam a devolver outra coisa.</p>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Galeria de cenários</p>
+          <h2>Lugares que guardam lembranças.</h2>
+        </div>
+        <p>Lília atravessa o mercado, a escola e a casa. A cada parada, uma parte do que ela lembra de Helena volta à superfície.</p>
       </div>
-      <div class="places">
-        <figure class="place">
-          <img class="px" src="sprites,,/sprite 5,,.jpeg" alt="Casa à noite em pixel art, com duas luminárias acesas, um caminho de terra e bolhas no céu">
-          <figcaption><h3>Casa</h3><span>Duas luminárias acesas, uma porta e um caminho de terra.</span></figcaption>
+
+      <div class="scenes" role="group" aria-label="Cenários em pixel art">
+        <figure class="scene">
+          <img class="px" src="sprites,,/1000698265.png" width="500" height="256" alt="Interior de um mercado escuro com letreiros amarelos e balcão de doces">
+          <figcaption><h3>Mercado</h3><p>Entre as prateleiras, as lembranças ainda parecem comuns.</p></figcaption>
         </figure>
-        <figure class="place">
-          <img class="px" src="sprites,,/sprite 3,,.jpeg" alt="Mercado em pixel art com caixa, freezer de congelados e balcão de docinhos">
-          <figcaption><h3>Mercado</h3><span>Caixa, freezer de congelados e balcão de docinhos.</span></figcaption>
+        <figure class="scene">
+          <img class="px" src="sprites,,/1000698280.png" width="400" height="256" alt="Fachada azul da escola sob um céu escuro">
+          <figcaption><h3>Escola</h3><p>As recordações de Helena ficam mais presentes.</p></figcaption>
         </figure>
-        <figure class="place">
-          <img class="px" src="sprites,,/sprite 2,,.jpeg" alt="Quarto roxo em pixel art com armário, janela de cortinas, cama e um quadro de partitura">
-          <figcaption><h3>Quarto</h3><span>Armário, janela com cortinas, cama e um quadro de partitura.</span></figcaption>
+        <figure class="scene">
+          <img class="px" src="sprites,,/1000698266.png" width="500" height="256" alt="Quarto roxo com cama, armário, janela e partitura na parede">
+          <figcaption><h3>Casa</h3><p>No quarto, Lília começa a encarar o dia da perda.</p></figcaption>
         </figure>
+      </div>
+      <div class="gallery-controls" hidden>
+        <button class="btn gallery-prev" type="button" aria-label="Cenário anterior">←</button>
+        <p class="gallery-count" aria-live="polite" aria-atomic="true"></p>
+        <button class="btn gallery-next" type="button" aria-label="Próximo cenário">→</button>
       </div>
     </div>
   </section>
 
   <section class="notebook" id="caderno">
-    <div class="wrap notebook-head">
-      <h2>colocar prints do jogo</h2> <!-- TODO -->
-      <p>Os storyboards deram forma às cenas antes dos sprites. Role para o lado e toque em uma página para ampliar.</p>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Caderno de produção</p>
+          <h2>Do lápis ao pixel.</h2>
+        </div>
+        <p>O banco onde Lília e Helena conversam apareceu primeiro no papel. Mova o controle para ver a passagem do storyboard à arte em pixel.</p>
+      </div>
+      <div class="compare">
+        <img src="sprites,,/sprite 4 refinado.png" alt="Colina noturna em pixel art com um banco e espirais no céu" loading="lazy">
+        <img class="top" src="storyboard/- storyboard 1 !.jpeg" alt="Rascunho a lápis com Lília e Helena sentadas no banco" loading="lazy">
+        <span class="tag l">Storyboard</span><span class="tag r">Pixel art</span>
+        <span class="c-line" aria-hidden="true"></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Quantidade do storyboard visível na comparação">
+      </div>
+      <h3 class="strip-title">Páginas do storyboard</h3>
+      <p>Role para o lado e selecione uma página para ampliar.</p>
     </div>
     <div class="strip" tabindex="0" aria-label="Páginas do caderno de storyboard">
       <figure><button type="button"><img src="storyboard/- storyboard 1 !.jpeg" alt="Storyboard a lápis de Lília e Helena sentadas juntas em um cenário submarino" loading="lazy"></button><figcaption>Um lugar compartilhado</figcaption></figure>
@@ -112,30 +157,33 @@
 
   <div class="wave" aria-hidden="true"></div>
 
-  <section class="close">
+  <section class="close" id="baixar">
     <div class="wrap close-grid">
       <div>
-        <h2>Há coisas que voltam diferentes.</h2>
-        <p>O nome vem daquilo que retorna à memória. No jogo, cada lembrança muda um pouco quando Lília tenta revivê-la, e nem sempre ela está pronta para o que encontra.</p>
-        <div class="acts"><a class="btn main" href="https://github.com/alizoca/reminiscentia" target="_blank" rel="noreferrer">Acompanhar no GitHub</a></div>
+        <p class="eyebrow">Download</p>
+        <h2>Volte ao fundo do mar.</h2>
+        <p>Baixe o instalador de Reminiscentia. Depois do download, abra o arquivo no Windows e siga as instruções de instalação.</p>
+        <div class="acts"><a class="btn main" href="jogo/Reminiscentia.exe" download><span aria-hidden="true">↓</span> Baixar para Windows</a></div>
+        <p class="file-info">Reminiscentia.exe <span aria-hidden="true">·</span> 17,5 MB</p>
       </div>
-      <img class="close-character" src="sprites,,/sprite_1_refinado.png" alt="Lília, personagem de água-viva em tons de azul, em pixel art" loading="lazy">
+      <img class="close-art px" src="sprites,,/1000698267.png" width="400" height="256" alt="Banco vazio sob um céu de espirais e estrelas" loading="lazy">
     </div>
   </section>
 </main>
 
 <footer id="equipe">
   <div class="wrap">
-    <h2>SITE E JOGO AINDA NÃO COMPLETO</h2> <!-- TODO -->
+    <h2>Equipe</h2>
     <div>
       <p>Ali Panzere, Arthur Peres, Allicia Sant’Anna, Luiz Henrique Menezes e Lanna Barbosa.</p>
-      <p class="legal">1º DS - SPO-IFSP - Jogo da banca</p>
+      <p class="legal">1º DS · IFSP São Paulo · Jogo da banca</p>
     </div>
+    <a href="https://github.com/alizoca/reminiscentia">Projeto no GitHub ↗</a>
   </div>
 </footer>
 
 <dialog id="lb" aria-labelledby="lb-cap">
-  <button type="button" class="btn lb-close">Fechar</button>
+  <form method="dialog"><button type="submit" class="btn lb-close">Fechar</button></form>
   <img alt="">
   <p id="lb-cap"></p>
 </dialog>
