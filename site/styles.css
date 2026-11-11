@@ -10,7 +10,6 @@
   --border: rgba(186,214,255,.23);
   --serif: "Fraunces",Georgia,"Times New Roman",serif;
   --pixel: "DotGothic16","Courier New",monospace;
-  --notch: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 4px,4px 4px);
 }
 
 * {
@@ -72,10 +71,6 @@ p {
 :focus-visible {
   outline: 3px solid var(--lamp);
   outline-offset: 3px;
-}
-
-[hidden] {
-  display: none !important;
 }
 
 .skip {
@@ -390,80 +385,29 @@ section {
 }
 
 .compare {
-  position: relative;
-  aspect-ratio: 16/9;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 1rem;
+}
+
+.compare figure {
+  margin: 0;
+  border: 1px solid var(--border);
   background: var(--abyss);
-  box-shadow: 8px 8px 0 var(--swirl);
-  --pos: 50%;
 }
 
 .compare img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
 }
 
-.compare .top {
-  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
-}
-
-.c-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--pos);
-  width: 3px;
-  margin-left: -1.5px;
-  background: var(--lamp);
-  pointer-events: none;
-}
-
-.c-line::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 22px;
-  height: 22px;
-  transform: translate(-50%,-50%);
-  background: var(--lamp);
-  clip-path: var(--notch);
-}
-
-.tag {
-  position: absolute;
-  bottom: 12px;
-  padding: .25rem .7rem;
-  font: .9rem var(--pixel);
-  color: #f3f6ff;
-  background: rgba(5,8,24,.82);
-  pointer-events: none;
-}
-
-.tag.l {
-  left: 12px;
-}
-
-.tag.r {
-  right: 12px;
-}
-
-.compare input {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  cursor: ew-resize;
-}
-
-.compare:focus-within {
-  outline: 3px solid var(--lamp);
-  outline-offset: 4px;
+.compare figcaption {
+  padding: .75rem 1rem;
+  border-top: 1px solid var(--border);
+  font: .95rem var(--pixel);
+  color: var(--foam);
 }
 
 .scene {
@@ -474,6 +418,7 @@ section {
 
 .scenes {
   display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 1rem;
 }
 
@@ -486,37 +431,13 @@ section {
 
 .scene figcaption {
   display: grid;
-  grid-template-columns: minmax(8rem,1fr) 2fr;
-  gap: .5rem 1.5rem;
-  align-items: baseline;
-  min-height: 6.75rem;
-  padding: 1.25rem clamp(1rem,3vw,2.5rem);
+  gap: .5rem;
+  padding: 1rem clamp(1rem,2vw,1.5rem);
   border-top: 1px solid var(--border);
 }
 
 .scene h3 {
   font-size: 1.6rem;
-}
-
-.gallery-controls {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 1.25rem;
-}
-
-.gallery-controls .btn {
-  width: 48px;
-  padding: 0;
-  font-size: 1.2rem;
-}
-
-.gallery-count {
-  min-width: 16ch;
-  text-align: center;
-  color: var(--foam);
-  font: .9rem/1.4 var(--pixel);
 }
 
 .notebook {
@@ -543,11 +464,8 @@ section {
   scroll-snap-align: center;
 }
 
-.strip button {
+.strip a {
   display: block;
-  padding: 0;
-  border: 0;
-  background: none;
   cursor: zoom-in;
 }
 
@@ -564,36 +482,6 @@ section {
   margin-top: .9rem;
   font: .95rem var(--pixel);
   color: var(--foam);
-}
-
-dialog {
-  max-width: 96vw;
-  max-height: 96vh;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #f3f6ff;
-}
-
-dialog::backdrop {
-  background: rgba(2,3,11,.92);
-}
-
-dialog img {
-  max-width: 94vw;
-  max-height: 84vh;
-  margin: auto;
-}
-
-dialog p {
-  margin-top: .8rem;
-  text-align: center;
-  font: .95rem var(--pixel);
-}
-
-.lb-close {
-  display: flex;
-  margin: 0 0 .8rem auto;
 }
 
 .close-grid {
@@ -659,6 +547,7 @@ footer a {
 @media (max-width: 760px) {
   .story-grid,
   .section-head,
+  .scenes,
   .close-grid {
     grid-template-columns: 1fr;
   }
@@ -703,30 +592,9 @@ footer a {
     font-size: .75rem;
   }
 
-  .character-grid {
+  .character-grid,
+  .compare {
     grid-template-columns: 1fr;
-  }
-
-  .scene figcaption {
-    grid-template-columns: 1fr;
-    min-height: 9rem;
-  }
-
-  .gallery-controls {
-    justify-content: center;
-  }
-
-  .tag {
-    bottom: 6px;
-    font-size: .72rem;
-  }
-
-  .tag.l {
-    left: 6px;
-  }
-
-  .tag.r {
-    right: 6px;
   }
 }
 
