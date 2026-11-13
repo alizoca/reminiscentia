@@ -25,6 +25,6 @@ A jornada culmina em um confronto simbólico com os próprios pensamentos de Lí
 
 - Ali Panzere
 - Arthur Peres
-- Allicia Sant’Anna
+- Allicia Sant’Ana
 - Luiz Henrique Menezes
 - Lanna Barbosa
