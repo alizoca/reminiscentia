@@ -518,10 +518,17 @@ footer {
 }
 
 footer .wrap {
+  display: grid;
+  gap: 2rem;
+}
+
+.footer-meta {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: .75rem 2rem;
   flex-wrap: wrap;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
 }
 
 footer h2 {
@@ -535,8 +542,27 @@ footer p {
   max-width: 34ch;
 }
 
-footer .legal {
-  margin-top: 1rem;
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(100%,9.5rem),1fr));
+  gap: 1.75rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team img {
+  width: min(100%,8rem);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.team h3 {
+  margin: .75rem 0 .25rem;
+  font-size: 1.2rem;
+  line-height: 1.25;
 }
 
 footer a {
