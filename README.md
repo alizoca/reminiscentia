@@ -18,6 +18,7 @@ A jornada culmina em um confronto simbólico com os próprios pensamentos de Lí
 
 ## Gênero ︵
 
+- RPG
 - Pixel art
 - Terror psicológico
 
