@@ -325,6 +325,14 @@ section {
   padding: 0;
 }
 
+.trailer video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
 /* história */
 .story-grid {
   display: grid;
