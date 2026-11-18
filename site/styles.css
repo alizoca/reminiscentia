@@ -538,6 +538,17 @@ footer .wrap {
   border-top: 1px solid var(--border);
 }
 
+.footer-actions {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: .75rem;
+  width: min(100%,34rem);
+}
+
+.footer-actions .btn {
+  padding: .65rem .8rem;
+}
+
 footer h2 {
   font-size: 1.9rem;
   max-width: none;
