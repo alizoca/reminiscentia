@@ -10,9 +10,9 @@ A protagonista, Lília, é uma água-viva humanoide que retorna ao fundo do mar 
 
 A aventura passa por três lugares, em uma ordem que acompanha a intensificação das lembranças:
 
-1. **Mercado** — uma fase mais tranquila, com lembranças cotidianas e ainda distantes do acontecimento central.
-2. **Escola** — as recordações da amiga ficam mais presentes; começam as alucinações e a negação, até Lília se deparar com o peso da perda.
-3. **Casa** — Lília relembra com mais clareza o dia da morte da amiga e começa a encarar o luto.
+1. **Mercado**: uma fase mais tranquila, com lembranças cotidianas e ainda distantes do acontecimento central.
+2. **Escola**: as recordações da amiga ficam mais presentes; começam as alucinações e a negação, até Lília se deparar com o peso da perda.
+3. **Casa**: Lília relembra com mais clareza o dia da morte da amiga e começa a encarar o luto.
 
 A jornada culmina em um confronto simbólico com os próprios pensamentos de Lília. O resultado leva a finais diferentes: ela pode ser consumida pelo luto ou aceitar a perda e seguir em frente.
 
@@ -25,7 +25,7 @@ A jornada culmina em um confronto simbólico com os próprios pensamentos de Lí
 ## Equipe ︵
 
 - Ali Panzere
-- Arthur Peres
 - Allicia Sant’Ana
-- Luiz Henrique Menezes
+- Arthur Peres
 - Lanna Barbosa
+- Luiz Henrique Menezes
